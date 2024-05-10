@@ -1,10 +1,11 @@
-name: My first workflow
-run-name: ${{ github.actor }} is learning github actions
-
-on: [push]
-
+name: A workflow for my Hello World file
+on: push
 jobs:
-  say-hello:
+  build:
+    name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello wassim ! this is a nice push ! keep going ..."
+    - uses: actions/checkout@v1
+    - uses: ./action-a
+      with:
+        MY_NAME: "Mona"

@@ -6,6 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ./wassim
-      with:
-        MY_NAME: "Mona"
+    - run: echo "hey"

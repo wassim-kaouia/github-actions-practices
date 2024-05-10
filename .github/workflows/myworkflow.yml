@@ -1,4 +1,5 @@
 name: My first workflow
+run-name: ${{ github.actor }} is learning github actions
 
 on: [push]
 

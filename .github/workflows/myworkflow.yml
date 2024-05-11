@@ -7,7 +7,7 @@ on:
 jobs:
   prod:
     name: Manual trigger event
-    if: ${{ github.ref }} == 'refs/heads/dev'
+    if: ${{ github.ref }} == 'refs/heads/wassim'
     runs-on: ubuntu-latest
     steps:
       - run: echo "run Id > ${{ github.run_id }}"

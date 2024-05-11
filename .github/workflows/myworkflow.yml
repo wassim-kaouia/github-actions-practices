@@ -1,12 +1,20 @@
-name: Manual trigger
+name: Manual trigger - workflow_dispatch from Github API
 
 on:
-  repository_dispatch:
-    types: [wassim]
+  workflow_dispatch:
+    inputs: 
+      MY_NAME:
+        description: hello word
+        required: true
+        default: wassim kaouia
+    
     
 jobs:
   prod:
     name: Manual trigger event
     runs-on: ubuntu-latest
     steps:
-      - run: echo "manual event >"
+      - run: echo "manual event > hello ${{ github.event.inputs.MY_NAME }}"
+
+
+      

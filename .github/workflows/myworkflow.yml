@@ -1,11 +1,19 @@
 name: Manual trigger
 
 on:
-  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'        
+      
 
 jobs:
   prod:
     name: Manual trigger event
     runs-on: ubuntu-latest
     steps:
-      - run: echo "manual event > workflow_dispatch"
+      - run: echo "manual event > ${{ github.event.inputs.logLevel }}"

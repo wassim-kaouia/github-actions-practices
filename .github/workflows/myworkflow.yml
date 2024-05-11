@@ -1,13 +1,9 @@
 name: Manual trigger - workflow_dispatch from Github API
 
 on:
-  workflow_dispatch:
-    inputs: 
-      MY_NAME:
-        description: hello word
-        required: true
-        default: wassim kaouia
-    
+  repository_dispatch:
+    types: [wassim]
+      
     
 jobs:
   prod:
@@ -17,5 +13,8 @@ jobs:
       - run: echo "manual event > hello ${{ github.event.inputs.MY_NAME }}"
       - run: echo "run Id > ${{ github.run_id }}"
 
+
+      
+      
 
       

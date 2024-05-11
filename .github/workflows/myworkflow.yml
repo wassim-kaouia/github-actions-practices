@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "manual event > hello ${{ github.event.inputs.MY_NAME }}"
+      - run: echo "run Id > ${{ github.run_id }}"
 
 
       

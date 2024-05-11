@@ -1,7 +1,5 @@
 on:
   repository_dispatch:
-    types: [opened, deleted]
-
 
 jobs:
   prod:
@@ -11,3 +9,4 @@ jobs:
       - run: echo "manual event > workflow_dispatch"
 
       
+

@@ -1,12 +1,12 @@
-name: A workflow for my Hello World file
-on: 
-  push:
-    branches:
-      - dev
+on:
+  repository_dispatch:
+
 jobs:
-  build:
-    name: Hello world action
+  prod:
+    name: Manual trigger event
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - run: echo "this is limited to dev branch only !"
+      - run: echo "manual event > workflow_dispatch"
+
+      
+

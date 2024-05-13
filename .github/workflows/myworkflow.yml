@@ -1,19 +1,31 @@
-name: Manual trigger - workflow_dispatch from Github API
+name: share artifacts between jobs
 
 on:
   push:
-    
-    
+     branches:
+      - main
+      - dev
+
 jobs:
-  prod:
-    name: Manual trigger event
-    if: github.ref == 'refs/heads/dev'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "run Id > ${{ github.run_id }}"
-
-
-      
+  job1:
+     name: first job
+     runs-on: ubuntu-latest
+     steps:
+        - run: echo "hello wassim and rania" > file.txt
+        - uses: actions/upload-artifact@v2
+          with:
+            name: file
+            path: file.txt
+  job2:
+      name: second job
+      runs-on: ubuntu-latest
+      needs: job1
+      steps:
+        - uses: actions/download-artifact@v2
+          with:
+            name: file
+        - run: cat file.txt              
+       
       
       
       
